@@ -42,6 +42,11 @@ window.addEventListener('load', async () => {
     window.history.replaceState({}, document.title, window.location.pathname);
   }
   await updateUI();
-  document.getElementById('login').onclick = () => auth0.loginWithRedirect();
+  //document.getElementById('login').onclick = () => auth0.loginWithRedirect();
+  document.getElementById('login').addEventListener('click', () => {
+  console.log('Login button clicked');
+  auth0.loginWithRedirect();
+});
+
   document.getElementById('logout').onclick = () => auth0.logout({ returnTo: window.location.origin });
 });
